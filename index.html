@@ -1,17 +1,52 @@
+<!-- index.html (Site Home) -->
 <!DOCTYPE html>
 <html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Showcase Giochi</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <h1>🎮 La mia collezione di giochi</h1>
-  <ul>
-    <li><a href="games/game-001/index.html">Gioco 1 – Salta il cubo</a></li>
-    <li><a href="games/game-002/index.html">Gioco 2 – Click rapido</a></li>
-  </ul>
-</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="theme-color" content="#0b1020" />
+    <title>Gen Z Arcade — Fresh Weekly Minis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="src/site.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1 class="logo">Gen Z Arcade <span class="pulse">⚡</span></h1>
+      <p class="tagline">Nuovi mini-giochi 2× settimana. Free, shareable, no cringe.</p>
+      <div class="actions">
+        <input id="search" class="search" placeholder="🔎 cerca: 'emoji', 'runner', 'slay'..." />
+        <div id="tags" class="tags"></div>
+        <button id="shareSite" class="btn share">🔗 Condividi</button>
+      </div>
+    </header>
 
+    <main class="grid" id="grid" aria-live="polite"></main>
+
+    <footer class="site-footer">
+      <small>Made for the scroll era — short, shiny, skill-based. Stay based 🫡</small>
+    </footer>
+
+    <template id="cardTmpl">
+      <article class="card">
+        <div class="thumb"></div>
+        <div class="card-body">
+          <h3 class="title"></h3>
+          <p class="desc"></p>
+          <div class="meta">
+            <span class="pill duration"></span>
+            <span class="pill updated"></span>
+          </div>
+          <div class="chips"></div>
+          <div class="cta">
+            <a class="btn play" target="_self" rel="noopener">▶️ Play</a>
+            <button class="btn mini share">🔗</button>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script src="src/site.js"></script>
+  </body>
+</html>

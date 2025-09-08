@@ -1,0 +1,69 @@
+<!-- games/vibe-catcher/index.html -->
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#111827" />
+    <title>Vibe Catcher — Trend Dash</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <h1 class="title">Vibe Catcher <span class="spark">✨</span></h1>
+        <div class="controls">
+          <button id="startBtn" class="btn primary">Start</button>
+          <button id="soundBtn" class="btn">🔊 Sound: On</button>
+          <button id="shareBtn" class="btn">🔗 Share</button>
+          <button id="boardBtn" class="btn">🏆 Leaderboard</button>
+        </div>
+      </header>
+
+      <main class="game-wrap">
+        <canvas id="game" width="360" height="600" aria-label="Vibe Catcher game canvas"></canvas>
+        <div class="hud">
+          <div>⏱️ <span id="time">60</span>s</div>
+          <div>💖 <span id="lives">3</span></div>
+          <div>⭐ Score: <span id="score">0</span></div>
+          <div>🥇 Best: <span id="best">0</span></div>
+        </div>
+        <div id="touchControls" class="touch">
+          <button id="leftBtn" class="touch-btn">⬅️</button>
+          <button id="rightBtn" class="touch-btn">➡️</button>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <small>Tip: Arrow/A-D to move. Catch trends ✅, dodge cringe ❌. Don’t be mid 😶</small>
+      </footer>
+    </div>
+
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal-card">
+        <h2>🏁 GG! Run Summary</h2>
+        <p><span id="modalMsg"></span></p>
+        <div class="modal-actions">
+          <button id="playAgainBtn" class="btn primary">Play Again</button>
+          <button id="closeModalBtn" class="btn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="leaderboard" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal-card">
+        <h2>🏆 Local Leaderboard</h2>
+        <ol id="scoresList" class="scores"></ol>
+        <div class="modal-actions">
+          <button id="clearScoresBtn" class="btn danger">Clear</button>
+          <button id="closeBoardBtn" class="btn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>
