@@ -62,14 +62,18 @@
   let best = Number(localStorage.getItem("vc_best") || "0");
   let lives = 3;
   let timeLeft = 60;
-  let speed = 2.2;
+  let speed = 1.5;
   let running = false;
   let spawnTimer = 0;
   const keys = new Set();
   let touchLeftHeld = false,
     touchRightHeld = false;
+  let touchStartX = 0;
   let last = 0;
   let timerId = null;
+  // Introduce a small cooldown to slow repeated horizontal lane changes
+  let laneMoveCooldown = 0; // counts down in frame units (dt)
+  const laneRepeatDelay = 7; // ~7 frames at 60fps ≈ 115ms
   const timeElUpdate = () => {
     timeEl.textContent = String(timeLeft);
     livesEl.textContent = String(lives);
@@ -87,7 +91,7 @@
     score = 0;
     lives = 3;
     timeLeft = 60;
-    speed = 2.2;
+    speed = 1.5;
     spawnTimer = 0;
     timeElUpdate();
   }
@@ -165,7 +169,7 @@
       if (dist < (player.size + o.size) * 0.55) {
         if (o.good) {
           score += 10;
-          speed = Math.min(speed + 0.05, 6);
+          speed = Math.min(speed + 0.03, 4);
           beep("good");
         } else {
           lives -= 1;
@@ -268,19 +272,58 @@
     touchRightHeld = false;
   });
 
+  // Add swipe support for mobile
+  canvas.addEventListener("touchstart", (e) => {
+    if (e.touches.length === 1) {
+      touchStartX = e.touches[0].clientX;
+    }
+  }, { passive: true });
+
+  canvas.addEventListener("touchend", (e) => {
+    if (e.changedTouches.length === 1 && touchStartX > 0) {
+      const touchEndX = e.changedTouches[0].clientX;
+      const diff = touchStartX - touchEndX;
+      const threshold = 50; // minimum swipe distance
+      
+      if (Math.abs(diff) > threshold) {
+        if (diff > 0 && player.lane > 0) {
+          // Swipe left
+          player.lane = Math.max(0, player.lane - 1);
+        } else if (diff < 0 && player.lane < lanes - 1) {
+          // Swipe right
+          player.lane = Math.min(lanes - 1, player.lane + 1);
+        }
+      }
+      touchStartX = 0;
+    }
+  }, { passive: true });
+
   function loop(ts) {
     if (!running) return;
     const dt = Math.min(16, ts - last) / 16;
     last = ts;
+    // update lane change cooldown
+    laneMoveCooldown = Math.max(0, laneMoveCooldown - dt);
     spawnTimer += dt;
-    if (spawnTimer > Math.max(0.45, 1.2 - speed * 0.15)) {
+    if (spawnTimer > Math.max(0.8, 1.8 - speed * 0.1)) {
       spawnObject();
       spawnTimer = 0;
     }
-    if (keys.has("left") || touchLeftHeld)
-      player.lane = Math.max(0, player.lane - 1);
-    if (keys.has("right") || touchRightHeld)
-      player.lane = Math.min(lanes - 1, player.lane + 1);
+    if (laneMoveCooldown <= 0) {
+      if (keys.has("left") || touchLeftHeld) {
+        const next = Math.max(0, player.lane - 1);
+        if (next !== player.lane) {
+          player.lane = next;
+          laneMoveCooldown = laneRepeatDelay;
+        }
+      } else if (keys.has("right") || touchRightHeld) {
+        const next = Math.min(lanes - 1, player.lane + 1);
+        if (next !== player.lane) {
+          player.lane = next;
+          laneMoveCooldown = laneRepeatDelay;
+        }
+      }
+    }
     stepObjects(dt);
     collide();
     const c = ctx;
