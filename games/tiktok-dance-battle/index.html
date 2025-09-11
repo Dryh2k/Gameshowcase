@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ff1493">
+    <title>TikTok Dance Battle — Hit the Beat!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Fredoka+One:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Gameshowcase/games/tiktok-dance-battle/src/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header con score e streak -->
+        <header class="game-header">
+            <div class="score-section">
+                <div class="score-item">
+                    <span class="label">Score</span>
+                    <span id="score" class="value">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="label">Streak</span>
+                    <span id="streak" class="value">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="label">Combo</span>
+                    <span id="combo" class="value">x1</span>
+                </div>
+            </div>
+            <div class="energy-meter">
+                <div class="energy-bar">
+                    <div id="energyProgress" class="energy-fill"></div>
+                </div>
+                <span id="energyLabel" class="energy-text">Low Energy 💤</span>
+            </div>
+        </header>
+
+        <!-- Dance Stage -->
+        <main class="dance-stage">
+            <div class="stage-lights"></div>
+            <div class="dancer" id="dancer">
+                <div class="dancer-body">
+                    <div class="head">😎</div>
+                    <div class="arms">
+                        <div class="arm left">🫱</div>
+                        <div class="arm right">🫲</div>
+                    </div>
+                    <div class="torso">🫦</div>
+                    <div class="legs">
+                        <div class="leg left">🦵</div>
+                        <div class="leg right">🦵</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dance Move Indicators -->
+            <div class="move-indicators" id="moveIndicators">
+                <!-- Moves will be dynamically added here -->
+            </div>
+        </main>
+
+        <!-- Beat Line -->
+        <div class="beat-line">
+            <div class="beat-target" id="beatTarget"></div>
+            <div class="beat-indicator" id="beatIndicator"></div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button id="startBtn" class="btn primary">🎵 Start Battle</button>
+            <button id="pauseBtn" class="btn secondary" disabled>⏸️ Pause</button>
+            <button id="soundBtn" class="btn icon">🔊</button>
+            <button id="shareBtn" class="btn icon">📱</button>
+        </div>
+
+        <!-- Dance Moves Guide -->
+        <div class="moves-guide">
+            <h3>Dance Moves 🕺</h3>
+            <div class="moves-grid">
+                <div class="move-item" data-move="up">
+                    <span class="move-key">↑</span>
+                    <span class="move-name">Hit It</span>
+                </div>
+                <div class="move-item" data-move="down">
+                    <span class="move-key">↓</span>
+                    <span class="move-name">Drop It</span>
+                </div>
+                <div class="move-item" data-move="left">
+                    <span class="move-key">←</span>
+                    <span class="move-name">Slide Left</span>
+                </div>
+                <div class="move-item" data-move="right">
+                    <span class="move-key">→</span>
+                    <span class="move-name">Slide Right</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div id="gameOverModal" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="gameOverTitle">Battle Over! 💀</h2>
+                <div class="final-stats">
+                    <div class="stat">
+                        <span class="stat-label">Final Score</span>
+                        <span id="finalScore" class="stat-value">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Max Streak</span>
+                        <span id="maxStreak" class="stat-value">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Accuracy</span>
+                        <span id="accuracy" class="stat-value">0%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Dance Level</span>
+                        <span id="danceLevel" class="stat-value">Rookie</span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button id="playAgainBtn" class="btn primary">🔄 Dance Again</button>
+                    <button id="shareScoreBtn" class="btn secondary">📱 Share</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instructions Modal -->
+        <div id="instructionsModal" class="modal">
+            <div class="modal-content">
+                <h2>How to Dance Battle 🕺</h2>
+                <div class="instructions">
+                    <div class="instruction">
+                        <span class="emoji">🎵</span>
+                        <p>Hit the dance moves when they reach the beat line</p>
+                    </div>
+                    <div class="instruction">
+                        <span class="emoji">⚡</span>
+                        <p>Build streaks for bonus points and energy</p>
+                    </div>
+                    <div class="instruction">
+                        <span class="emoji">🔥</span>
+                        <p>Perfect timing = more points and energy</p>
+                    </div>
+                    <div class="instruction">
+                        <span class="emoji">💃</span>
+                        <p>Use arrow keys or tap the move buttons</p>
+                    </div>
+                </div>
+                <button id="closeInstructionsBtn" class="btn primary">Let's Dance! 🎵</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/Gameshowcase/games/tiktok-dance-battle/src/index.js"></script>
+</body>
+</html>

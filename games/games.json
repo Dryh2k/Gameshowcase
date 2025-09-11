@@ -8,5 +8,25 @@
     "updated": "2025-09-08T00:00:00.000Z",
     "path": "games/vibe-catcher/index.html",
     "thumb": "✨"
+  },
+  {
+    "slug": "meme-master",
+    "title": "Meme Master — The Ultimate Vibe Check",
+    "description": "Matcha meme e slang Gen Z! Combo system, vibe levels, 60s challenge. No cap! 💅",
+    "duration": "3–5 min (matching game, alta rigiocabilità)",
+    "tags": ["matching", "meme", "slang", "combo", "vibe", "genz"],
+    "updated": "2025-01-27T00:00:00.000Z",
+    "path": "games/meme-master/index.html",
+    "thumb": "🧠"
+  },
+  {
+    "slug": "tiktok-dance-battle",
+    "title": "TikTok Dance Battle — Hit the Beat!",
+    "description": "Rhythm game Gen Z! Dance moves, timing, energy system. Slay the beat! 🕺✨",
+    "duration": "4–7 min (rhythm game, alta rigiocabilità)",
+    "tags": ["rhythm", "dance", "timing", "energy", "tiktok", "genz"],
+    "updated": "2025-01-27T00:00:00.000Z",
+    "path": "games/tiktok-dance-battle/index.html",
+    "thumb": "🕺"
   }
 ]

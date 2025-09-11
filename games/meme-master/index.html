@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ff0080">
+    <title>Meme Master — The Ultimate Vibe Check</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Gameshowcase/games/meme-master/src/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header con score e timer -->
+        <header class="game-header">
+            <div class="score-section">
+                <div class="score-item">
+                    <span class="label">Score</span>
+                    <span id="score" class="value">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="label">Combo</span>
+                    <span id="combo" class="value">x1</span>
+                </div>
+                <div class="score-item">
+                    <span class="label">Time</span>
+                    <span id="timer" class="value">60</span>
+                </div>
+            </div>
+            <div class="vibe-meter">
+                <div class="vibe-bar">
+                    <div id="vibeProgress" class="vibe-fill"></div>
+                </div>
+                <span id="vibeLabel" class="vibe-text">Lowkey Mid 💀</span>
+            </div>
+        </header>
+
+        <!-- Game board -->
+        <main class="game-board">
+            <div id="gameGrid" class="grid"></div>
+        </main>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button id="startBtn" class="btn primary">🚀 Start Vibe Check</button>
+            <button id="pauseBtn" class="btn secondary" disabled>⏸️ Pause</button>
+            <button id="soundBtn" class="btn icon">🔊</button>
+            <button id="shareBtn" class="btn icon">📱</button>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div id="gameOverModal" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="gameOverTitle">Game Over! 💀</h2>
+                <div class="final-stats">
+                    <div class="stat">
+                        <span class="stat-label">Final Score</span>
+                        <span id="finalScore" class="stat-value">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Max Combo</span>
+                        <span id="maxCombo" class="stat-value">x1</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Vibe Level</span>
+                        <span id="finalVibe" class="stat-value">Mid</span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button id="playAgainBtn" class="btn primary">🔄 Play Again</button>
+                    <button id="shareScoreBtn" class="btn secondary">📱 Share</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instructions Modal -->
+        <div id="instructionsModal" class="modal">
+            <div class="modal-content">
+                <h2>How to Vibe Check 🧠</h2>
+                <div class="instructions">
+                    <div class="instruction">
+                        <span class="emoji">🎯</span>
+                        <p>Match meme pairs by clicking them</p>
+                    </div>
+                    <div class="instruction">
+                        <span class="emoji">⚡</span>
+                        <p>Build combos for bonus points</p>
+                    </div>
+                    <div class="instruction">
+                        <span class="emoji">🔥</span>
+                        <p>Don't let the timer run out!</p>
+                    </div>
+                    <div class="instruction">
+                        <span class="emoji">💅</span>
+                        <p>Stay slaying to unlock new vibes</p>
+                    </div>
+                </div>
+                <button id="closeInstructionsBtn" class="btn primary">Let's Go! 🚀</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/Gameshowcase/games/meme-master/src/index.js"></script>
+</body>
+</html>
