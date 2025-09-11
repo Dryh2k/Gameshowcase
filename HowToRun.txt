@@ -1,5 +1,5 @@
 
-## Avvio locale
+## Avvio locale:
 - Opzione 1: apri `index.html` direttamente (alcune funzioni di share/clipboard potrebbero richiedere https).
 - Opzione 2 (consigliata): avvia un server statico.
   - Node: `npx serve .` → apri `http://localhost:3000`
