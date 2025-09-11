@@ -133,8 +133,8 @@
     c.textAlign = "center";
     c.textBaseline = "middle";
     c.font = `bold ${player.size}px system-ui, emoji`;
-    c.shadowColor = "rgba(79,70,229,.5)";
-    c.shadowBlur = 16;
+    c.shadowColor = "rgba(79,70,229,.3)";
+    c.shadowBlur = 10;
     c.fillText("😎", x, player.y);
     c.restore();
   }
@@ -146,8 +146,8 @@
     for (const o of objects) {
       const x = o.lane * laneWidth + laneWidth / 2;
       c.font = `bold ${o.size}px system-ui, emoji`;
-      c.shadowColor = o.good ? "rgba(34,211,238,.5)" : "rgba(239,68,68,.5)";
-      c.shadowBlur = 12;
+    c.shadowColor = o.good ? "rgba(34,211,238,.3)" : "rgba(239,68,68,.3)";
+    c.shadowBlur = 8;
       c.fillText(o.emoji, x, o.y);
     }
     c.restore();
