@@ -1,0 +1,36 @@
+
+## Avvio locale
+- Opzione 1: apri `index.html` direttamente (alcune funzioni di share/clipboard potrebbero richiedere https).
+- Opzione 2 (consigliata): avvia un server statico.
+  - Node: `npx serve .` → apri `http://localhost:3000`
+
+## Aggiungere un nuovo gioco (settimanale, 2x)
+1. Crea cartella: `games/<slug>/` con `index.html` e relativi `src/`.
+2. Inserisci thumbnail (opzionale: emoji in `games.json`).
+3. Aggiungi entry in `games/games.json`:
+```json
+{
+  "slug": "nuovo-slug",
+  "title": "Titolo",
+  "description": "Descrizione breve",
+  "duration": "3–10 min",
+  "tags": ["emoji","challenge"],
+  "updated": "YYYY-MM-DD",
+  "path": "games/nuovo-slug/index.html",
+  "thumb": "🔥"
+}
+```
+4. Deploy.
+
+## Deploy
+- Carica l’intera cartella su Netlify/Vercel o sul tuo hosting statico.
+- URL root = homepage, i giochi sono in `games/<slug>/`.
+
+## Test rapido
+- Homepage: cerca per tag, clicca ▶️ per aprire il gioco.
+- Condivisione: bottone 🔗 per sito o singolo gioco.
+- Primo gioco: “Vibe Catcher — Trend Dash” funziona su mobile/desktop, con leaderboard locale.
+
+## Licenze / Dipendenze
+- Nessuna libreria JS esterna obbligatoria. Google Fonts opzionale.
+- Codice libero per uso personale/commerciale con attribution (facoltativa).
