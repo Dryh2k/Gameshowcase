@@ -741,3 +741,4 @@ body::before {
     50% { background: linear-gradient(90deg, transparent 0%, rgba(255, 20, 147, 0.8) 50%, transparent 100%); }
     100% { background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%); }
 }
+

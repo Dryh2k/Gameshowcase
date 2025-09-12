@@ -23,3 +23,4 @@ echo    - genz-arcade-games-complete.zip
 echo.
 echo 🚀 Tutti gli archivi sono pronti per la distribuzione!
 pause
+
